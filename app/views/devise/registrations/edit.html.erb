@@ -4,8 +4,15 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+  <%= f.label :username %><br />
+  <%= f.text_field :username, autofocus:true %>
+  <p></p>
+</div>
+
+  <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autocomplete: "email" %>
+    <p></p>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -19,16 +26,19 @@
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
+    <p></p>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <p></p>
   </div>
 
   <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <p></p>
   </div>
 
   <div class="actions">
