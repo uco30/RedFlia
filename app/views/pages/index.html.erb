@@ -1,2 +1,152 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<% if !user_signed_in? %> 
+    <style>
+        body {
+            background: linear-gradient(
+                rgba(0,0,0, 0.5),
+                rgba(0,0,0, 0.5)
+            ), url("/Landing.jpg") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -noz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        h2 {
+            color: white;
+            font-weight: bold;
+        }
+        .container-index {
+            margin-right: 15%;
+            margin-left: 15%;
+        }
+        .text {
+            color: white;
+            font-weight: 300;
+        }
+        .footer-links {
+            text-align: center;
+            color: white;
+            margin-top: 30%;
+            font-size: 80%;
+        }
+        .log-in {
+            float: right;
+            width: 300px;
+            height: 210px;
+            margin-top: 7.5%;
+            background-color: #e1e8ed;
+            border-radius: 8px;
+            border-width:3px;
+            border-style:solid;
+            border-color:#aaaae1;
+        }
+        .sign-up {
+            float: right;
+            width: 300px;
+            height: 290px;
+            background-color: #e1e8ed;
+            border-radius: 8px;
+            border-width:3px;
+            border-style:solid;
+            border-color: #aaaae1;
+        }
+        .margen {
+            margin-left: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+         p {
+          font-weight: bold;
+        }
+    </style>
+
+    <div class="container-index row">
+        <div class="col-sm-6">
+        <h2>Bienvenidos a Red Familia.</h2>
+        <br>
+        <p class="text">
+       Una red para mantenernos conectados mas allá de la distancia.
+        </p>
+    </div>
+    <div class="col-sm-6">
+    
+        <div class="log-in panel">
+        <div class="margen">
+        
+        <p>Log in</p>
+
+        <form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="eLo4YB9rrgNDmnW+/ZiMcqHnLda0+rpK5VTC/P2YTM+SIBAiBgK3+XKvBrFptqPk4xjShaawfA3Evrwv+KF/LA==" />
+          <div class="field">
+            <label for="user_email">Email</label><br />
+            <input autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email" />
+          </div>
+        
+          <div class="field">
+            <label for="user_password">Password</label><br />
+            <input autocomplete="current-password" type="password" name="user[password]" id="user_password" />
+          </div>
+        
+            <div class="field">
+              <input name="user[remember_me]" type="hidden" value="0" /><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me" />
+              <label for="user_remember_me">Remember me</label>
+            </div>
+        
+          <div class="actions">
+          <input type="submit" name="commit" value="Log in" data-disable-with="Log in" />
+          </div>
+        </form>
+        </div>
+        </div>
+        
+
+       
+        <div class="sign-up panel">
+        <div class="margen">
+  
+        <p>Sign up</p>
+
+        <form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="lvr/ZLdtRclx/rdAbBMQg8OjVPLMHZxKqL0xAQLBqWXJHLhugmzECsWQFK8EmAh+5Fq+REjCgAENLt3c6xhXjw==" />
+  
+        <div class="field">
+          <label for="user_username">Username</label><br />
+          <input autofocus="autofocus" type="text" name="user[username]" id="user_username" />
+         
+        </div>
+        <div class="field">
+          <label for="user_email">Email</label><br />
+          <input autocomplete="email" type="email" value="" name="user[email]" id="user_email" />
+        
+        </div>
+      
+        <div class="field">
+          <label for="user_password">Password</label>
+          <em><b>(6 characters min)</b></em>
+          <br />
+          <input autocomplete="new-password" type="password" name="user[password]" id="user_password" />
+        
+        </div>
+      
+        <div class="field">
+          <label for="user_password_confirmation">Password confirmation</label><br />
+          <input autocomplete="new-password" type="password" name="user[password_confirmation]" id="user_password_confirmation" />
+    <p></p>
+        </div>
+      
+        <div class="actions">
+          <input type="submit" name="commit" value="Sign up" data-disable-with="Sign up" />
+        </div>
+      </form>
+      </div>
+        </div>
+        
+
+    </div>
+    <div class="col-sm-14">
+    <p class="footer-links">About  Help  Blog  Status  Jobs  Terms  Privacy  Cookies  Ads  Info  Brand  Advertise  Business  Media  Developers  Directory  ©  2020  Marcker</p>
+    </div>
+
+
+<% else %>
+
+        <script>document.location = "/home"</script>
+
+<% end %>
